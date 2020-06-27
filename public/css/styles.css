@@ -1,5 +1,5 @@
 body {
-	  padding: 40px 10px;
+	  padding: 40px 40px;
 	    background-color: #eee;
     }
     .listing-reg h1 {
@@ -9,8 +9,18 @@ body {
 
 	.listing-reg h3 {
 		text-align: center;
-		  margin: 0 0 2rem;
-    }
+		margin: 0 0 2rem;
+		padding-top: 40px;
+
+	}
+	
+	.del-registration {
+		padding-top: 40px;
+	}
+
+
+
+
 
 	/* css for registration form and errors*/
 	.form-registration {
@@ -52,7 +62,7 @@ body {
 					      }
 					      .listing-table th,
 					      .listing-table td {
-						        padding: 10px;
+						        padding: 10px 40px;
 							  border-bottom: 1px solid #666;
 						  }
 						  .listing-table th {

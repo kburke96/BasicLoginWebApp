@@ -15,7 +15,7 @@ const basic = auth.basic({
 router.get('/registrations', basic.check((req, res) => {
 	Registration.find()
 	    .then((registrations) => {
-		          res.render('index', { title: 'Listing registrations', registrations });
+		          res.render('index', { title: 'Listing registrations', pagename: 'Registrations', registrations });
 		        })
 	    .catch(() => { res.send('Sorry! Something went wrong.'); });
 }));
@@ -32,7 +32,8 @@ router.post('/deleteReg', (req, res) => {
 	Registration.deleteMany( {  }, function (err) {
 		if (err) return handleError(err);
 	})
-	 .then(() => { res.send('You just deleted all users!'); })
+	 //.then(() => { res.send('You just deleted all users!'); })
+	 .then(() => res.render('form', { title: 'Registration form', pagename: 'Welcome to my app!', message: 'Enter your details' }) )
 
 });
 
