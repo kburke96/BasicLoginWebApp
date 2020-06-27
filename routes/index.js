@@ -20,8 +20,27 @@ router.get('/registrations', basic.check((req, res) => {
 	    .catch(() => { res.send('Sorry! Something went wrong.'); });
 }));
 
+
+router.get('/deleteReg', (req, res) => {
+	res.render('delete', { title: 'Delete registrations', pagename: 'Delete registrations' });
+});
+
+
+router.post('/deleteReg', (req, res) => {
+	console.log("The delete button was pressed!");
+
+	Registration.deleteMany( {  }, function (err) {
+		if (err) return handleError(err);
+	})
+	 .then(() => { res.send('You just deleted all users!'); })
+
+});
+
 router.get('/', (req, res) => {
-	  res.render('form', { title: 'Registration form' });
+	res.render('form',  { title: 'Registration form',
+							pagename: 'Welcome to my app!',
+							message: 'Enter your details' 
+						});
 });
 
 router.post('/', (req, res) => {
@@ -46,7 +65,9 @@ router.post('/', (req, res) => {
 				    });
 		        } else {
 				      res.render('form', {
-					              title: 'Registration form',
+								  title: 'Registration form',
+								  pagename: 'Welcome to my app!',
+								  message: 'Enter your details',
 					              errors: errors.array(),
 					              data: req.body,
 					            });

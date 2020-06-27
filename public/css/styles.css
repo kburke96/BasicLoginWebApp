@@ -7,6 +7,11 @@ body {
 	        margin: 0 0 2rem;
 	}
 
+	.listing-reg h3 {
+		text-align: center;
+		  margin: 0 0 2rem;
+    }
+
 	/* css for registration form and errors*/
 	.form-registration {
 		  max-width: 330px;
